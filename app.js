@@ -188,6 +188,11 @@ app.get('/auth/linkedin/callback', passport.authenticate('linkedin', { failureRe
   res.redirect(req.session.returnTo || '/');
 });
 
+app.get('/auth/ing', passport.authenticate('ing' ));
+app.get('/auth/ing/callback', passport.authenticate('ing', { failureRedirect: '/login' }), function(req, res) {
+  res.redirect(req.session.returnTo || '/');
+});
+
 /**
  * OAuth authorization routes for API examples.
  */

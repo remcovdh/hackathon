@@ -33,8 +33,8 @@ module.exports = {
   },
 
   sendgrid: {
-    user: process.env.SENDGRID_USER || 'hslogin',
-    password: process.env.SENDGRID_PASSWORD || 'hspassword00'
+    user: process.env.SENDGRID_USER || 'Team42',
+    password: process.env.SENDGRID_PASSWORD || 'rem2@gr1ds@nt!'
   },
 
   nyt: {

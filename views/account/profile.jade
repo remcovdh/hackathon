@@ -79,6 +79,11 @@ block content
   .page-header
     h3 Linked Accounts
 
+   if user.ingAccount
+      p: a.text-danger(href='/account/unlink/ingAccount') Unlink your ING account
+   else
+      p: a(href='/auth/ING') Link your ING account
+
   if user.instagram
     p: a.text-danger(href='/account/unlink/instagram') Unlink your Instagram account
   else

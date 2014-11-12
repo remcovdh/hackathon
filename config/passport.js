@@ -357,6 +357,7 @@ passport.use('foursquare', new OAuth2Strategy({
     clientSecret: secrets.foursquare.clientSecret,
     callbackURL: secrets.foursquare.redirectUrl,
     passReqToCallback: true
+
   },
   function(req, accessToken, refreshToken, profile, done) {
     User.findById(req.user._id, function(err, user) {
@@ -387,6 +388,30 @@ passport.use('venmo', new OAuth2Strategy({
     });
   }
 ));
+
+passport.use('ing', new OAuth2Strategy({
+    authorizationURL: 'https://commonapi.paymentslab.nl/authserver/oauth2/authorization',
+    tokenURL: 'https://commonapi.paymentslab.nl/authserver/oauth2/access_token',
+    clientID: "HomebankApp",
+    clientSecret: "rUfPenujHLGs5CIc",
+    callbackURL: "/auth/ing",
+    passReqToCallback: true
+
+  },
+  function(req, accessToken, refreshToken, profile, done) {
+    console.log(accessToken);
+    console.log(profile);
+
+    User.findById(req.user._id, function(err, user) {
+      user.tokens.push({ kind: 'ing', accessToken: accessToken });
+      user.save(function(err) {
+        done(err, user);
+      });
+    });
+  }
+));
+
+
 
 // Login Required middleware.
 
