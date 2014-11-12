@@ -31,6 +31,7 @@ var detailController = require('./controllers/customerDetail');
 var userController = require('./controllers/user');
 var apiController = require('./controllers/api');
 var contactController = require('./controllers/contact');
+var ingAuthController = require('./controllers/ingAuthController');
 
 /**
  * API keys and Passport configuration.
@@ -189,9 +190,13 @@ app.get('/auth/linkedin/callback', passport.authenticate('linkedin', { failureRe
 });
 
 app.get('/auth/ing', passport.authenticate('ing' ));
-app.get('/auth/ing/callback', passport.authenticate('ing', { failureRedirect: '/login' }), function(req, res) {
+
+app.get('/auth/ing/callback', ingAuthController.index);
+/*app.get('/auth/ing/callback', passport.authenticate('ing', { failureRedirect: '/login' }), function(req, res) {
+    console.log("TEST2") ;
+    console.log(req.session.returnTo);
   res.redirect(req.session.returnTo || '/');
-});
+});        */
 
 /**
  * OAuth authorization routes for API examples.

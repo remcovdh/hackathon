@@ -394,7 +394,7 @@ passport.use('ing', new OAuth2Strategy({
     tokenURL: 'https://commonapi.paymentslab.nl/authserver/oauth2/access_token',
     clientID: "HomebankApp",
     clientSecret: "rUfPenujHLGs5CIc",
-    callbackURL: "/auth/ing",
+    callbackURL: "http://localhost:3000/",
     passReqToCallback: true
 
   },
