@@ -5,11 +5,6 @@ html(lang ="en")
   body
     h1 userID
     p #{viewCustomerDetail1}
-    p #{viewCustomerDetail2}
-
-
-    h1 DETAILS
-    p #{(viewCustomerDetail2."bankId")}
-
-    p #{viewCustomerDetail2.gender}
-    p #{viewCustomerDetail2.name}
+    p #{viewCustomerDetail2.salutation.label} #{viewCustomerDetail2.name}
+    p #{viewCustomerDetailX}
+    p #{viewCustomerDetail3}
