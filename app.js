@@ -27,6 +27,7 @@ var connectAssets = require('connect-assets');
 
 var homeController = require('./controllers/home');
 var newpageController = require('./controllers/newpage');
+var detailController = require('./controllers/customerDetail');
 var userController = require('./controllers/user');
 var apiController = require('./controllers/api');
 var contactController = require('./controllers/contact');
@@ -112,6 +113,7 @@ app.use(express.static(path.join(__dirname, 'public'), { maxAge: 31557600000 }))
 
 app.get('/', homeController.index);
 app.get('/newpage', newpageController.index);
+app.get('/customerDetail', detailController.index);
 app.get('/login', userController.getLogin);
 app.post('/login', userController.postLogin);
 app.get('/logout', userController.logout);
