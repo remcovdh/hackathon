@@ -6,6 +6,9 @@ var userSchema = new mongoose.Schema({
   email: { type: String, unique: true, lowercase: true },
   password: String,
 
+  bankAccountNumber: String,
+
+
   facebook: String,
   twitter: String,
   google: String,
