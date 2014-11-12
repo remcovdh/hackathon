@@ -1,6 +1,5 @@
 exports.index = function(req, res) {
   requestBankDetails(res);
-  requestBankDetails(res,'/commonapi/v0/es/persons?apikey=BG0XkgyPUAaoyntDapDNHUuyNqAIdhCr');
 };
 
 var customerDetail1=null;
@@ -35,6 +34,22 @@ http.request(
       }
     );
   }).end();
+
+  http.request(
+    createOptions('/commonapi/v0/es/server/status?apikey=BG0XkgyPUAaoyntDapDNHUuyNqAIdhCr')
+    ,function (response){
+      var str = '';
+
+      response.on('data', function (chunk){
+        str+=chunk;
+      });
+
+      response.on('end', function(){
+          console.log(str);
+        }
+      );
+    }).end();
+
 
 
 var test1 = createOptions('/commonapi/v0/es/persons/INGESRIv01-enc-ZLl_OaUMtHhc9Fb5ehNMQvXXdKlAorlzKIbXsyLlI9ZujyWzHEBC-l5JIAx3wjcZkBPWmkx2T_BnaOonul5QMD3P1MJxpfPrY2EMx6wcvBY?apikey=BG0XkgyPUAaoyntDapDNHUuyNqAIdhCr');
