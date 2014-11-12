@@ -7,7 +7,7 @@ html
     meta(name='csrf-token', content=_csrf)
     title #{title} - Team 42
     != css('main')
-    script( type='text/javascript') function prettyDate(){alert(window.location.href)};
+    script( type='text/javascript') function prettyDate(){var loc = window.location.href;if(loc.indexOf('#')>0){var afterHash = loc.substr(loc.indexOf("#") + 1);window.location.href='http://localhost:3000/auth/ing/token?' + afterHash ;}};
 
  body(onload="prettyDate();")
     include partials/navbar
