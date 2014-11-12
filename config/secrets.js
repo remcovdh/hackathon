@@ -46,12 +46,14 @@ module.exports = {
     secret: process.env.LASTFM_SECRET || 'is cb7857b8fba83f819ea46ca13681fe71'
   },
 
-  facebook: {
-    clientID: process.env.FACEBOOK_ID || '754220301289665',
-    clientSecret: process.env.FACEBOOK_SECRET || '41860e58c256a3d7ad8267d3c1939a4a',
-    callbackURL: '/auth/facebook/callback',
-    passReqToCallback: true
-  },
+
+
+    facebook: {
+      clientID: process.env.FACEBOOK_ID || '871779656200247',
+      clientSecret: process.env.FACEBOOK_SECRET || '54a5fa0a9a88a3f853c66613a2bb6da8',
+      callbackURL: '/auth/facebook/callback',
+      passReqToCallback: true
+    },
 
   instagram: {
     clientID: process.env.INSTAGRAM_ID || '9f5c39ab236a48e0aec354acb77eee9b',
