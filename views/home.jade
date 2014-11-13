@@ -6,16 +6,28 @@ block content
   .row
     .col-sm-6
       .panel.panel-default.portlet
-        .panel-heading Heading
+        .panel-heading Connected profiles
         .panel-body
-          p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-          p
-            a.btn.btn-default(href='#', role='button') View details »
+           if user.ingAccount
+              p: a.text-danger(href='/account/unlink/ingAccount') Unlink your ING account
+           else
+              p: a(href='/auth/ING') Link your ING account
+             if user.facebook
+               p: a.text-danger(href='/account/unlink/facebook') Unlink your Facebook account
+             else
+               p: a(href='/auth/facebook') Link your Facebook account
+            if user.linkedin
+              p: a.text-danger(href='/account/unlink/linkedin') Unlink your LinkedIn account
+            else
+              p: a(href='/auth/linkedin') Link your LinkedIn account
+            p
+                a.btn.btn-default(href='/account', role='button') Profile details »
 
     .col-sm-6
         .panel.panel-default.portlet
             .panel-heading Heading
             .panel-body
+                #{user.facebook}
               p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
               p
                 a.btn.btn-default(href='#', role='button') View details »
