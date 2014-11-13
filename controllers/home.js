@@ -4,9 +4,11 @@
  */
 var graph = require('fbgraph');
 var User = require('../models/User');
+var Lin = require('node-linkedin');
 var facebookProfile = null;
 
 exports.index = function(req, res) {
+<<<<<<< HEAD
 	requestBankDetails(req, res)
 }
 
@@ -29,6 +31,59 @@ function requestFacebook(req, res) {
 			}
 		}
 	});
+=======
+       response = res;
+       var found = false;
+       if(req.user)       {
+
+
+          User.findById(req.user.id, function(err, user) {
+
+                      var length = user.tokens.length;
+
+                      for(var i = 0;i<length;i++){
+                           if(user.tokens[i].kind=='facebook'){
+                                found = true;
+                                graph
+                                   .setAccessToken(user.tokens[i].accessToken)
+                                   .get("/me", function(err, data) {
+                                                      console.log(err);
+                                   facebookProfile = data;
+                                   complete();
+                                   //    console.log(data);
+                                   });
+
+                                        /*   graph
+                                              .setAccessToken(user.tokens[i].accessToken)
+                                              .get("/me/photos", function(err, data) {
+
+                                                 console.log(data);
+                                              }); */
+
+                            }
+
+                      }
+
+
+             if(!found){
+              response.render('home', {
+                  title: 'Home',
+                  fbProfile:{}
+
+                });
+              };
+              });
+           } else {
+                            response.render('home', {
+                                title: 'Home',
+                                fbProfile:{}
+
+                              });
+           }
+
+
+
+>>>>>>> 8b4e1696f74fe2b2dccea33a1758b3cbb9b75b90
 };
 
 
