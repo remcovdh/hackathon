@@ -1,27 +1,27 @@
- var User = require('../models/User');
-
-exports.index = function(req, res) {
-                      User.findById(req.user._id, function(err, user) {
-                                         var tokens =                           user.tokens;
-                                         //console.log(tokens);
-
-
-                                         var arrayLength = tokens.length;
-                                         for (var i = 0; i < arrayLength; i++) {
-                                                  if(tokens[i].kind == 'ing') {
-                                                  ingToken = tokens[i].accessToken;
-                                                   console.log(ingToken) ;
-                                                   console.log("___________________")
-
-                                                }
-
-                                         }
-                                          requestBankDetails(res);
-
-                                 });
-
-
-};
+//  var User = require('../models/User');
+//
+// exports.index = function(req, res) {
+//                       User.findById(req.user._id, function(err, user) {
+//                                          var tokens =                           user.tokens;
+//                                          //console.log(tokens);
+//
+//
+//                                          var arrayLength = tokens.length;
+//                                          for (var i = 0; i < arrayLength; i++) {
+//                                                   if(tokens[i].kind == 'ing') {
+//                                                   ingToken = tokens[i].accessToken;
+//                                                    console.log(ingToken) ;
+//                                                    console.log("___________________")
+//
+//                                                 }
+//
+//                                          }
+//                                           requestBankDetails(res);
+//
+//                                  });
+//
+//
+// };
 
 var ingToken = null;
 var customerDetail1=null;
