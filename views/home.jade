@@ -28,6 +28,7 @@ block content
             .panel-heading Facebook
             .panel-body
               if user.facebook
+                  img#fbPicture(src='#{fbPicture.location}')
                   label.control-label(for='name') Name
                   p #{fbProfile.name}
                   label.control-label(for='name') Email

@@ -8,6 +8,7 @@ var Lin = require('node-linkedin');
  var User = require('../models/User');
 
 var facebookProfile = null;
+var facebookPicture = null;
    var response = null;
 
 
@@ -27,11 +28,18 @@ exports.index = function(req, res) {
                                 graph
                                    .setAccessToken(user.tokens[i].accessToken)
                                    .get("/me", function(err, data) {
-                                                      console.log(err);
+
                                    facebookProfile = data;
                                    complete();
                                    //    console.log(data);
                                    });
+                                  graph.get("/me/picture", function(err, data) {
+
+                                  facebookPicture = data;
+                                  complete();
+
+                                  });
+
 
                                         /*   graph
                                               .setAccessToken(user.tokens[i].accessToken)
@@ -46,6 +54,7 @@ exports.index = function(req, res) {
 
 
              if(!found){
+             console.log( "not found")
               response.render('home', {
                   title: 'Home',
                   fbProfile:{}
@@ -54,6 +63,7 @@ exports.index = function(req, res) {
               };
               });
            } else {
+           console.log( "no user")
                             response.render('home', {
                                 title: 'Home',
                                 fbProfile:{}
@@ -67,14 +77,18 @@ exports.index = function(req, res) {
 
 
 function complete(){
-  if(facebookProfile!==null){
+  if(facebookProfile!==null && facebookPicture !==null){
     console.log(facebookProfile);
-    console.log(facebookProfile.location);
-    console.log(facebookProfile.location.name);
+
+    console.log(facebookPicture);
+    console.log("WRITING")
     response.render('home', {
         title: 'Home',
-        fbProfile:facebookProfile
+        fbProfile:facebookProfile ,
+         fbPicture:facebookPicture
 
       });
+      facebookProfile = null;
+      facebookPicture = null;
     };
   }
