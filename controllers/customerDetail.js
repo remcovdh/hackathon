@@ -34,7 +34,7 @@ http.request(
   }).end();
 
   http.request(
-    createOptions('/commonapi/v0/es/server/status?apikey=BG0XkgyPUAaoyntDapDNHUuyNqAIdhCr')
+    createOptions('/commonapi/v0/es/persons/INGESRIv01-enc-ZLl_OaUMtHhc9Fb5ehNMQvXXdKlAorlzKIbXsyLlI9ZujyWzHEBC-l5JIAx3wjcZkBPWmkx2T_BnaOonul5QMD3P1MJxpfPrY2EMx6wcvBY/products?apikey=BG0XkgyPUAaoyntDapDNHUuyNqAIdhCr')
     ,function (response){
       var str = '';
 
@@ -43,7 +43,7 @@ http.request(
       });
 
       response.on('end', function(){
-          console.log(str);
+          customerDetail4=str
         }
       );
     }).end();
