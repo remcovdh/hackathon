@@ -49,8 +49,8 @@ module.exports = {
 
 
     facebook: {
-      clientID: process.env.FACEBOOK_ID || '871779656200247',
-      clientSecret: process.env.FACEBOOK_SECRET || '54a5fa0a9a88a3f853c66613a2bb6da8',
+      clientID: process.env.FACEBOOK_ID || '622100207911989',
+      clientSecret: process.env.FACEBOOK_SECRET || '6192754a4f4de1a345a10c9a169b7851',
       callbackURL: '/auth/facebook/callback',
       passReqToCallback: true
     },
@@ -84,8 +84,8 @@ module.exports = {
   },
 
   linkedin: {
-    clientID: process.env.LINKEDIN_ID || '77chexmowru601',
-    clientSecret: process.env.LINKEDIN_SECRET || 'szdC8lN2s2SuMSy8',
+    clientID: process.env.LINKEDIN_ID || '77lpenv0eappgh',
+    clientSecret: process.env.LINKEDIN_SECRET || 'o5Y8p5VjjH0Cg285',
     callbackURL: '/auth/linkedin/callback',
     scope: ['r_fullprofile', 'r_emailaddress', 'r_network'],
     passReqToCallback: true
