@@ -25,6 +25,24 @@ block content
 
     .col-sm-6
         .panel.panel-default.portlet
+            .panel-heading ING
+            .panel-body
+              .form-group
+                label.control-label(for='name') Name
+                p #{viewCustomerDetailX2.salutation.label} #{viewCustomerDetailX2.name}
+              .form-group
+                label.control-label(for='name') Address
+                p #{viewCustomerDetailX2.addresses[0].street} 
+              .form-group
+                label.control-label(for='name') Phonenumber (#{viewCustomerDetailX2.phones[0].phoneNumberType.label})
+                p #{viewCustomerDetailX2.phones[0].number}
+              .form-group
+                label.control-label(for='name') Phonenumber (#{viewCustomerDetailX2.phones[1].phoneNumberType.label})
+                p #{viewCustomerDetailX2.phones[1].number}
+                a.btn.btn-default(href='#', role='button') View details »
+
+    .col-sm-6
+        .panel.panel-default.portlet
             .panel-heading Facebook
             .panel-body
               if user.facebook
@@ -45,15 +63,9 @@ block content
         .panel.panel-default.portlet
             .panel-heading Heading
             .panel-body
-              p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-              p
-                a.btn.btn-default(href='#', role='button') View details »
-    .col-sm-6
-        .panel.panel-default.portlet
-            .panel-heading Heading
-            .panel-body
               a(href='/newpage') newpage
               a(href='/customerDetail') details
               p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
               p
                 a.btn.btn-default(href='#', role='button') View details »
+
