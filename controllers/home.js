@@ -13,32 +13,37 @@ var facebookProfile = null;
 
 exports.index = function(req, res) {
        response = res;
-  User.findById(req.user.id, function(err, user) {
+       var found = false;
+       if(req.user)       {
 
-              var length = user.tokens.length;
-              var found = false;
-              for(var i = 0;i<length;i++){
-                   if(user.tokens[i].kind=='facebook'){
-                        found = true;
-                        graph
-                           .setAccessToken(user.tokens[i].accessToken)
-                           .get("/me", function(err, data) {
-                                              console.log(err);
-                           facebookProfile = data;
-                           complete();
-                           //    console.log(data);
-                           });
 
-                                /*   graph
-                                      .setAccessToken(user.tokens[i].accessToken)
-                                      .get("/me/photos", function(err, data) {
+          User.findById(req.user.id, function(err, user) {
 
-                                         console.log(data);
-                                      }); */
+                      var length = user.tokens.length;
 
-                    }
+                      for(var i = 0;i<length;i++){
+                           if(user.tokens[i].kind=='facebook'){
+                                found = true;
+                                graph
+                                   .setAccessToken(user.tokens[i].accessToken)
+                                   .get("/me", function(err, data) {
+                                                      console.log(err);
+                                   facebookProfile = data;
+                                   complete();
+                                   //    console.log(data);
+                                   });
 
-              }
+                                        /*   graph
+                                              .setAccessToken(user.tokens[i].accessToken)
+                                              .get("/me/photos", function(err, data) {
+
+                                                 console.log(data);
+                                              }); */
+
+                            }
+
+                      }
+
 
              if(!found){
               response.render('home', {
@@ -47,8 +52,16 @@ exports.index = function(req, res) {
 
                 });
               };
+              });
+           } else {
+                            response.render('home', {
+                                title: 'Home',
+                                fbProfile:{}
 
-    });
+                              });
+           }
+
+
 
 };
 
