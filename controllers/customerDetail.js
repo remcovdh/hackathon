@@ -6,6 +6,9 @@ var customerDetail1=null;
 var customerDetail2=null;
 var customerDetail3=null;
 var customerDetail4=null;
+customerDetailX2=null;
+customerDetailX3=null;
+customerDetailX4=null;
 
 function createOptions(pathValue){
   return {hostname:'ingcommonapi-test.apigee.net', path: pathValue,
@@ -27,6 +30,7 @@ http.request(
     });
 
     response.on('end', function(){
+        console.log('customerDetail1');
         customerDetail1=str;
         complete();
       }
@@ -43,32 +47,35 @@ http.request(
       });
 
       response.on('end', function(){
-          customerDetail4=str
-        }
+        console.log('customerDetail4');
+        customerDetail4=str;
+        customerDetailX4=JSON.parse(str);
+      }
       );
     }).end();
 
-var test1 = createOptions('/commonapi/v0/es/persons/INGESRIv01-enc-ZLl_OaUMtHhc9Fb5ehNMQvXXdKlAorlzKIbXsyLlI9ZujyWzHEBC-l5JIAx3wjcZkBPWmkx2T_BnaOonul5QMD3P1MJxpfPrY2EMx6wcvBY?apikey=BG0XkgyPUAaoyntDapDNHUuyNqAIdhCr');
-  console.log(test1);
-  http.request(test1
+http.request(
+ createOptions('/commonapi/v0/es/persons/INGESRIv01-enc-ZLl_OaUMtHhc9Fb5ehNMQvXXdKlAorlzKIbXsyLlI9ZujyWzHEBC-l5JIAx3wjcZkBPWmkx2T_BnaOonul5QMD3P1MJxpfPrY2EMx6wcvBY?apikey=BG0XkgyPUAaoyntDapDNHUuyNqAIdhCr')
+	
   ,function(response){
     var str = '';
-
 
     response.on('data', function (chunk){
       str+=chunk;
     });
 
     response.on('end', function(){
-    customerDetail2=JSON.parse(str);
-    customerDetailX=JSON.stringify(str);
-    complete();
+      console.log('customerDetail2');
+      customerDetail2=str;
+      customerDetailX2=JSON.parse(str);
+      complete();
     }
   );
 }).end()
 
-var url2 = createOptions('/commonapi/v0/es/persons/INGESRIv01-enc-ZLl_OaUMtHhc9Fb5ehNMQvXXdKlAorlzKIbXsyLlI9ZujyWzHEBC-l5JIAx3wjcZkBPWmkx2T_BnaOonul5QMD3P1MJxpfPrY2EMx6wcvBY/products?apikey=BG0XkgyPUAaoyntDapDNHUuyNqAIdhCr')
-http.request(test1
+http.request(
+	createOptions('/commonapi/v0/es/persons/INGESRIv01-enc-ZLl_OaUMtHhc9Fb5ehNMQvXXdKlAorlzKIbXsyLlI9ZujyWzHEBC-l5JIAx3wjcZkBPWmkx2T_BnaOonul5QMD3P1MJxpfPrY2EMx6wcvBY/products?apikey=BG0XkgyPUAaoyntDapDNHUuyNqAIdhCr')
+	
 ,function(response){
   var str = '';
 
@@ -76,9 +83,11 @@ http.request(test1
     str+=chunk;
   });
 
-  response.on('end', function(){
-  customerDetail3=str;
-  complete();
+  response.on('end', function() {
+    console.log('customerDetail2');
+    customerDetail3=str;
+    customerDetailX3=JSON.parse(str);
+    complete();
   }
 );
 }).end()
@@ -89,9 +98,11 @@ function complete(){
       title: 'Customer Details',
       viewCustomerDetail1:customerDetail1,
       viewCustomerDetail2:customerDetail2,
-      viewCustomerDetailX:customerDetailX,
+      viewcustomerDetailX2:customerDetailX2,
       viewCustomerDetail3:customerDetail3,
-      viewCustomerDetail4:customerDetail4
+      viewCustomerDetailX3:customerDetailX3,
+      viewCustomerDetail4:customerDetail4,
+      viewcustomerDetailX4:customerDetailX4
       });
     };
   }
