@@ -38,6 +38,8 @@ block content
                   p #{fbProfile.location.name}
                   p
                     a.btn.btn-default(href='#{fbProfile.link}', role='button') View full profile »
+              else
+                   p: a(href='/auth/facebook') Link your Facebook account!
 
     .col-sm-6
         .panel.panel-default.portlet
