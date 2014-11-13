@@ -1,24 +1,64 @@
+extends layout
 
-h1 userID
-p #{viewCustomerDetail1}
-h1 user details 2
-p #{viewCustomerDetail2}
+block content
 
-h1 user details 3
-p #{viewCustomerDetail3}
+  form(method='POST')
+    .col-sm-4
+      .panel.panel-default.portlet
+        .panel-heading
+          h4 Customer details
+        .panel-body
+            .form-group
+              label.control-label(for='name') Name
+              p #{viewCustomerDetailX2.salutation.label} #{viewCustomerDetailX2.name}
+            .form-group
+              label.control-label(for='name') Address
+              p #{viewCustomerDetailX2.addresses[0].street} 
+            .form-group
+              label.control-label(for='name') Phonenumber (#{viewCustomerDetailX2.phones[0].phoneNumberType.label})
+              p #{viewCustomerDetailX2.phones[0].number}
+            .form-group
+              label.control-label(for='name') Phonenumber (#{viewCustomerDetailX2.phones[1].phoneNumberType.label})
+              p #{viewCustomerDetailX2.phones[1].number}
+            .form-group
+              button.btn.btn-primary(type='submit')
+                | Are you this?
+              a.btn.btn-link(href='/forgot') Not you?
 
-h1 user details 4
-p #{viewCustomerDetail4}
 
-h1 beter 2
-p #{viewCustomerDetailX2}
+  h1 userID
+  p #{viewCustomerDetail1}
+  h1 user details 2
+  p #{viewCustomerDetail2}
 
-h1 beter 3
-p #{viewCustomerDetailX3}
-h1 beter 4
-p #{viewCustomerDetailX4}
+  h1 user details 3
+  p #{viewCustomerDetail3}
 
-h1 beter 4
-p #{viewCustomerDetailX4.list[0]}
-h1 details 3
-p #{viewCustomerDetailX3.list}
+  h1 user details 4
+  p #{viewCustomerDetail4}
+
+  h1 beter 2
+  p #{viewCustomerDetailX2}
+
+  h1 beter 3
+  p #{viewCustomerDetailX3}
+  h1 beter 4
+  p #{viewCustomerDetailX4}
+
+  h1 details 2
+  table
+    thead
+      tr 
+        th Label
+        th Details
+        tbody
+          tr
+            td Name 
+            td #{viewCustomerDetailX2.salutation.label} 
+          tr
+            td Label #{viewCustomerDetailX2.name}
+
+
+
+  h1 details 3
+  p #{viewCustomerDetailX3.productIdentification}
