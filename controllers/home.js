@@ -137,7 +137,7 @@ function createOptions(pathValue){
 function complete(){
 	console.log('complete');
   if(customerDetail1!==null && customerDetail2!==null && customerDetail3!==null && customerDetail4!==null 
-		&& facebookProfile!==null) {
+		) {
 		console.log('response2'+respons);
 		
     respons.render('home', {
@@ -151,5 +151,16 @@ function complete(){
       viewCustomerDetailX4:customerDetailX4,
 			fbProfile:facebookProfile
       });
-    };
+
+                customerDetail1 = null;
+                customerDetail2 = null;
+                customerDetailX2 = null;
+                customerDetail3 = null;
+                customerDetailX3 = null;
+                customerDetail4 =null;
+                customerDetailX4  = null;
+                facebookProfile = null;
+          };
+
+
   }
