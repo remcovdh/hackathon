@@ -4,12 +4,21 @@
  */
 var graph = require('fbgraph');
 var User = require('../models/User');
-var Lin = require('node-linkedin');
 var facebookProfile = null;
+var customerDetail1=null;
+var customerDetail2=null;
+var customerDetail3=null;
+var customerDetail4=null;
+
+customerDetailX2=null;
+customerDetailX3=null;
+customerDetailX4=null;
+var respons = null;
 
 exports.index = function(req, res) {
-<<<<<<< HEAD
-	requestBankDetails(req, res)
+	respons = res;
+	console.log('response'+respons);
+	requestBankDetails(req, res);
 }
 
 function requestFacebook(req, res) {
@@ -23,69 +32,20 @@ function requestFacebook(req, res) {
 					.setAccessToken(user.tokens[i].accessToken)
 					.get("/me", function(err, data) { console.log(err);
 						facebookProfile = data;
-						completeFacebook();
 						if (facebookProfile==null) {
-							facebookProfile={}
+							facebookProfile={};
 						}
+						console.log('facebook'+facebookProfile)
+						complete();
 				 });
 			}
 		}
+		if (!found) {
+			facebookProfile={};
+			complete();
+		}
 	});
-=======
-       response = res;
-       var found = false;
-       if(req.user)       {
-
-
-          User.findById(req.user.id, function(err, user) {
-
-                      var length = user.tokens.length;
-
-                      for(var i = 0;i<length;i++){
-                           if(user.tokens[i].kind=='facebook'){
-                                found = true;
-                                graph
-                                   .setAccessToken(user.tokens[i].accessToken)
-                                   .get("/me", function(err, data) {
-                                                      console.log(err);
-                                   facebookProfile = data;
-                                   complete();
-                                   //    console.log(data);
-                                   });
-
-                                        /*   graph
-                                              .setAccessToken(user.tokens[i].accessToken)
-                                              .get("/me/photos", function(err, data) {
-
-                                                 console.log(data);
-                                              }); */
-
-                            }
-
-                      }
-
-
-             if(!found){
-              response.render('home', {
-                  title: 'Home',
-                  fbProfile:{}
-
-                });
-              };
-              });
-           } else {
-                            response.render('home', {
-                                title: 'Home',
-                                fbProfile:{}
-
-                              });
-           }
-
-
-
->>>>>>> 8b4e1696f74fe2b2dccea33a1758b3cbb9b75b90
 };
-
 
 function createOptions(pathValue){
 	  return {hostname:'ingcommonapi-test.apigee.net', path: pathValue,
@@ -95,15 +55,6 @@ function createOptions(pathValue){
 
 	function requestBankDetails(req, res){
 		requestFacebook(req, res);
-
-		var customerDetail1=null;
-		var customerDetail2=null;
-		var customerDetail3=null;
-		var customerDetail4=null;
-
-		customerDetailX2=null;
-		customerDetailX3=null;
-		customerDetailX4=null;
 
 	var http = require('http');
 
@@ -181,20 +132,24 @@ function createOptions(pathValue){
 	    );
 	  }).end();
 
-	function complete(){
-	  if(customerDetail1!==null && customerDetail2!==null && customerDetail3!==null && customerDetail4!==null && 				facebookProfile==null){
-	    res.render('home', {
-	      title: 'Home',
-	      viewCustomerDetail1:customerDetail1,
-	      viewCustomerDetail2:customerDetail2,
-	      viewCustomerDetailX2:customerDetailX2,
-	      viewCustomerDetail3:customerDetail3,
-	      viewCustomerDetailX3:customerDetailX3,
-	      viewCustomerDetail4:customerDetail4,
-	      viewCustomerDetailX4:customerDetailX4,
-				fbProfile:facebookProfile
-	      });
-	    };
-	  }
 	}
 
+function complete(){
+	console.log('complete');
+  if(customerDetail1!==null && customerDetail2!==null && customerDetail3!==null && customerDetail4!==null 
+		&& facebookProfile!==null) {
+		console.log('response2'+respons);
+		
+    respons.render('home', {
+      title: 'Customer Details',
+      viewCustomerDetail1:customerDetail1,
+      viewCustomerDetail2:customerDetail2,
+      viewCustomerDetailX2:customerDetailX2,
+      viewCustomerDetail3:customerDetail3,
+      viewCustomerDetailX3:customerDetailX3,
+      viewCustomerDetail4:customerDetail4,
+      viewCustomerDetailX4:customerDetailX4,
+			fbProfile:facebookProfile
+      });
+    };
+  }
