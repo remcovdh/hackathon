@@ -27,10 +27,18 @@ block content
         .panel.panel-default.portlet
             .panel-heading Facebook
             .panel-body
-              p #{fbProfile.gender}
-              p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-              p
-                a.btn.btn-default(href='#', role='button') View details »
+              if user.facebook
+                  label.control-label(for='name') Name
+                  p #{fbProfile.name}
+                  label.control-label(for='name') Email
+                  p #{fbProfile.email}
+                  label.control-label(for='name') Gender
+                  p #{fbProfile.gender}
+                  label.control-label(for='name') Location
+                  p #{fbProfile.location.name}
+                  p
+                    a.btn.btn-default(href='#{fbProfile.link}', role='button') View full profile »
+
     .col-sm-6
         .panel.panel-default.portlet
             .panel-heading Heading
