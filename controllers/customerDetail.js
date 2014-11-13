@@ -90,7 +90,7 @@ function complete(){
       viewCustomerDetail1:customerDetail1,
       viewCustomerDetail2:customerDetail2,
       viewCustomerDetailX:customerDetailX,
-      viewCustomerDetail3:customerDetail3
+      viewCustomerDetail3:customerDetail3,
       viewCustomerDetail4:customerDetail4
       });
     };
