@@ -9,15 +9,15 @@ block content
         .panel-heading Connected profiles
         .panel-body
            if user.ingAccount
-              p: a.text-danger(href='/account/unlink/ingAccount') Unlink your ING account
+              p: a.bg-success(href='/account/unlink/ingAccount') Your ING account is linked, click to unlink.
            else
               p: a(href='/auth/ING') Link your ING account
              if user.facebook
-               p: a.text-danger(href='/account/unlink/facebook') Unlink your Facebook account
+               p: a.bg-success(href='/account/unlink/facebook') Your Facebook account is linked, click to unlink.
              else
                p: a(href='/auth/facebook') Link your Facebook account
             if user.linkedin
-              p: a.text-danger(href='/account/unlink/linkedin') Unlink your LinkedIn account
+              p: a.bg-success(href='/account/unlink/linkedin') Your LinkedIn account is linked, click to unlink.
             else
               p: a(href='/auth/linkedin') Link your LinkedIn account
             p
@@ -25,9 +25,9 @@ block content
 
     .col-sm-6
         .panel.panel-default.portlet
-            .panel-heading Heading
+            .panel-heading Facebook
             .panel-body
-                #{user.facebook}
+              p #{fbProfile.gender}
               p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
               p
                 a.btn.btn-default(href='#', role='button') View details »
