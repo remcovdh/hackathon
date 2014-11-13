@@ -5,6 +5,7 @@ exports.index = function(req, res) {
 var customerDetail1=null;
 var customerDetail2=null;
 var customerDetail3=null;
+var customerDetail4=null;
 
 function createOptions(pathValue){
   return {hostname:'ingcommonapi-test.apigee.net', path: pathValue,
@@ -83,13 +84,14 @@ http.request(test1
 }).end()
 
 function complete(){
-  if(customerDetail1!==null && customerDetail2!==null && customerDetail3!==null){
+  if(customerDetail1!==null && customerDetail2!==null && customerDetail3!==null && customerDetail4!==null){
     res.render('customerDetail', {
       title: 'Customer Details',
       viewCustomerDetail1:customerDetail1,
       viewCustomerDetail2:customerDetail2,
       viewCustomerDetailX:customerDetailX,
       viewCustomerDetail3:customerDetail3
+      viewCustomerDetail4:customerDetail4
       });
     };
   }
