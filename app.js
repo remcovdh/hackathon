@@ -112,9 +112,10 @@ app.use(express.static(path.join(__dirname, 'public'), { maxAge: 31557600000 }))
  * Main routes.
  */
 
-app.get('/', passportConf.isAuthenticated, homeController.index);
+app.get('/', homeController.index);
 app.get('/newpage', newpageController.index);
 app.get('/customerDetail', detailController.index);
+app.post('/customerDetail', detailController.postAccept);
 app.get('/login', userController.getLogin);
 app.post('/login', userController.postLogin);
 app.get('/logout', userController.logout);

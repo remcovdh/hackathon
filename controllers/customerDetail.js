@@ -2,6 +2,10 @@ exports.index = function(req, res) {
   requestBankDetails(res);
 };
 
+exports.postAccept = function(req, res) {
+  console.log("DAS:FLKSA:FAS:LFJAS:FJALS:FJAS:");
+};
+
 var customerDetail1=null;
 var customerDetail2=null;
 var customerDetail3=null;
