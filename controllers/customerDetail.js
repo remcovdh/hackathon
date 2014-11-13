@@ -100,11 +100,11 @@ function complete(){
       title: 'Customer Details',
       viewCustomerDetail1:customerDetail1,
       viewCustomerDetail2:customerDetail2,
-      viewcustomerDetailX2:customerDetailX2,
+      viewCustomerDetailX2:customerDetailX2,
       viewCustomerDetail3:customerDetail3,
       viewCustomerDetailX3:customerDetailX3,
       viewCustomerDetail4:customerDetail4,
-      viewcustomerDetailX4:customerDetailX4
+      viewCustomerDetailX4:customerDetailX4
       });
     };
   }
