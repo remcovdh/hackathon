@@ -24,51 +24,34 @@ var http = require('http');
 http.request(
   createOptions('/commonapi/v0/es/me?apikey=BG0XkgyPUAaoyntDapDNHUuyNqAIdhCr')
   ,function (response){
-    var str = '';
+    var str1 = '';
 
     response.on('data', function (chunk){
-      str+=chunk;
+      str1+=chunk;
     });
 
     response.on('end', function(){
         console.log('customerDetail1');
-        customerDetail1=str;
+        customerDetail1=str1;
         complete();
       }
     );
   }).end();
 
-  http.request(
-    createOptions('/commonapi/v0/es/persons/INGESRIv01-enc-ZLl_OaUMtHhc9Fb5ehNMQvXXdKlAorlzKIbXsyLlI9ZujyWzHEBC-l5JIAx3wjcZkBPWmkx2T_BnaOonul5QMD3P1MJxpfPrY2EMx6wcvBY/products?apikey=BG0XkgyPUAaoyntDapDNHUuyNqAIdhCr')
-    ,function (response){
-      var str = '';
-
-      response.on('data', function (chunk){
-        str+=chunk;
-      });
-
-      response.on('end', function(){
-        console.log('customerDetail4');
-        customerDetail4=str;
-        customerDetailX4=JSON.parse(str);
-      }
-      );
-    }).end();
-
 http.request(
  createOptions('/commonapi/v0/es/persons/INGESRIv01-enc-ZLl_OaUMtHhc9Fb5ehNMQvXXdKlAorlzKIbXsyLlI9ZujyWzHEBC-l5JIAx3wjcZkBPWmkx2T_BnaOonul5QMD3P1MJxpfPrY2EMx6wcvBY?apikey=BG0XkgyPUAaoyntDapDNHUuyNqAIdhCr')
 	
   ,function(response){
-    var str = '';
+    var str2 = '';
 
     response.on('data', function (chunk){
-      str+=chunk;
+      str2+=chunk;
     });
 
     response.on('end', function(){
       console.log('customerDetail2');
-      customerDetail2=str;
-      customerDetailX2=JSON.parse(str);
+      customerDetail2=str2;
+      customerDetailX2=JSON.parse(str2);
       complete();
     }
   );
@@ -78,20 +61,38 @@ http.request(
 	createOptions('/commonapi/v0/es/persons/INGESRIv01-enc-ZLl_OaUMtHhc9Fb5ehNMQvXXdKlAorlzKIbXsyLlI9ZujyWzHEBC-l5JIAx3wjcZkBPWmkx2T_BnaOonul5QMD3P1MJxpfPrY2EMx6wcvBY/products?apikey=BG0XkgyPUAaoyntDapDNHUuyNqAIdhCr')
 	
 ,function(response){
-  var str = '';
+  var str3 = '';
 
   response.on('data', function (chunk){
-    str+=chunk;
+    str3+=chunk;
   });
 
   response.on('end', function() {
     console.log('customerDetail2');
-    customerDetail3=str;
-    customerDetailX3=JSON.parse(str);
+    customerDetail3=str3;
+    customerDetailX3=JSON.parse(str3);
     complete();
   }
 );
 }).end()
+
+http.request(
+  createOptions('/commonapi/v0/es/persons/INGESRIv01-enc-ZLl_OaUMtHhc9Fb5ehNMQvXXdKlAorlzKIbXsyLlI9ZujyWzHEBC-l5JIAx3wjcZkBPWmkx2T_BnaOonul5QMD3P1MJxpfPrY2EMx6wcvBY/products?apikey=BG0XkgyPUAaoyntDapDNHUuyNqAIdhCr')
+  ,function (response){
+    var str4 = '';
+
+    response.on('data', function (chunk){
+      str4+=chunk;
+    });
+
+    response.on('end', function(){
+      console.log('customerDetail4');
+      customerDetail4=str4;
+      customerDetailX4=JSON.parse(str4);
+      console.log('customerDetail4'+customerDetailX4);
+    }
+    );
+  }).end();
 
 function complete(){
   if(customerDetail1!==null && customerDetail2!==null && customerDetail3!==null && customerDetail4!==null){
