@@ -6,19 +6,20 @@ block content
   form(method='POST')
     input(type='hidden', name='_csrf', value=_csrf)
     .panel.panel-default#internal
-      .page-header
-        h3 Sign in
-      .form-group
-        label.control-label(for='email') Email
-        input.form-control(type='email', name='email', id='email', placeholder='Email', autofocus=true)
-      .form-group
-        label.control-label(for='password') Password
-        input.form-control(type='password', name='password', id='password', placeholder='Password')
-      .form-group
-        button.btn.btn-primary(type='submit')
-          span.ion-android-hand
-          | Login
-        a.btn.btn-link(href='/forgot') Forgot your password?
+      .panel-heading
+        h4 Sign in
+      .panel-body
+          .form-group
+            label.control-label(for='email') Email
+            input.form-control(type='email', name='email', id='email', placeholder='Email', autofocus=true)
+          .form-group
+            label.control-label(for='password') Password
+            input.form-control(type='password', name='password', id='password', placeholder='Password')
+          .form-group
+            button.btn.btn-primary(type='submit')
+              span.ion-android-hand
+              | Login
+            a.btn.btn-link(href='/forgot') Forgot your password?
       .panel.panel-default#external
           a.btn.btn-block.btn-facebook.btn-social(href='/auth/facebook')
             i.fa.fa-facebook
