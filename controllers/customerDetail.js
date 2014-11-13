@@ -1,33 +1,12 @@
-//  var User = require('../models/User');
-//
-// exports.index = function(req, res) {
-//                       User.findById(req.user._id, function(err, user) {
-//                                          var tokens =                           user.tokens;
-//                                          //console.log(tokens);
-//
-//
-//                                          var arrayLength = tokens.length;
-//                                          for (var i = 0; i < arrayLength; i++) {
-//                                                   if(tokens[i].kind == 'ing') {
-//                                                   ingToken = tokens[i].accessToken;
-//                                                    console.log(ingToken) ;
-//                                                    console.log("___________________")
-//
-//                                                 }
-//
-//                                          }
-//                                           requestBankDetails(res);
-//
-//                                  });
-//
-//
-// };
+exports.index = function(req, res) {
+  requestBankDetails(res);
+};
 
-var ingToken = null;
 var customerDetail1=null;
 var customerDetail2=null;
 var customerDetail3=null;
 var customerDetail4=null;
+
 customerDetailX2=null;
 customerDetailX3=null;
 customerDetailX4=null;

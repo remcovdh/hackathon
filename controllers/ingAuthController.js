@@ -15,6 +15,7 @@ console.log(token);
                    console.log(req.user._id);
      User.findById(req.user._id, function(err, user) {
            user.tokens.push({ kind: 'ing', accessToken: token });
+           user.ingAccount = 1;
            user.save(function(err) {
             res.redirect('/');
             // done(err, user);
