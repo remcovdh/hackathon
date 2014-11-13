@@ -10,6 +10,7 @@ var userSchema = new mongoose.Schema({
 
 
   facebook: String,
+  ingAccount: String,
   twitter: String,
   google: String,
   github: String,
