@@ -3,6 +3,7 @@
  * Home page.
  */
 var graph = require('fbgraph');
+var Lin = require('node-linkedin');
 
  var User = require('../models/User');
 
