@@ -1,0 +1,5 @@
+/node_modules/passport-oath2/lib/strategy.js#206 to
+    params.response_type = 'token';
+
+
+/config/secrets.js use correct keys....
