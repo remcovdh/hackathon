@@ -12,10 +12,11 @@ var url_parts = url.parse(req.url, true);
 var query = url_parts.query;
 var token = query["access_token"];
 console.log(token);
-                   console.log(req.user._id);
+                   console.log("TEST: " + req.user._id);
      User.findById(req.user._id, function(err, user) {
            user.tokens.push({ kind: 'ing', accessToken: token });
            user.ingAccount = 1;
+           console.log("Writing");
            user.save(function(err) {
             res.redirect('/');
             // done(err, user);
